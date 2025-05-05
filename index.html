@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager App</title>
+  <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuAlHCtYo1ekJ6Gh3QfvGbEHNs-LmybeVtNA&s" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Task Manager</h1>
+    <!-- INPUT FIELDS -->
+    <form id="task-form">
+      <input type="text" id="task-title" placeholder="Task title" required>
+      <input type="text" id="task-quote" placeholder="Optional: Add an inspirational quote">
+      <button type="button" id="fetch-quote">Fetch Quote</button>
+      <button type="submit">Add Task</button>
+    </form>
+    <!-- BUTTON CONTAINER -->
+    <div id="filter-buttons">
+      <button data-filter="all">All</button>
+      <button data-filter="completed">Completed</button>
+      <button data-filter="pending">Pending</button>
+    </div>
+    <!-- TASK LISTS -->
+    <ul id="task-list">
+
+    </ul>
+  </main>
+  <script src="/scr/app.js" type="module" defer></script>
+</body>
+</html>

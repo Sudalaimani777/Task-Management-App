@@ -1,0 +1,328 @@
+                                                                        DAY - 1
+
+
+    ES6 Classes :-
+
+            A class serves as a blueprint.Classes are ES6 feature that provides a more structured amd cleaner way to work with the object compared to the traditional constructor function for example static keyword, encapsulation, inheritance, etc...
+
+            Classes are a template for creating objects. They encapsulate data with code to work on that data. Classes in JS are built on prototypes but also have some syntax and semantics that are unique to classes.
+
+            Classes create objects through the new operator.
+            Each object has some properties (data or method) added by the class.
+            The class stores some properties (data or method) itself, which are usually used to interact with instances.
+
+            A class in ES6 can be defined using the class keyword followed by the class name and a body enclosed in braces {}. The class body contains the methods (and constructor) definitions.
+
+                class Person {
+                    constructor(name, age) {
+                        this.name = name;
+                        this.age = age;
+                }
+
+                intro() {
+                    console.log(`Hello, my name is ${this.name}.`);
+                }
+            }
+
+            const person1 = new Person("Sudalaimani, 23);
+            console.log(person1); // Sudalaimani 23.
+            person1.intro(); //Hello, my name is Sudalaimani.
+
+    NOTES : 
+
+        1)Use the keyword "class".
+        2)Class Name (The starting letter of the class name must be in "Capital") - Class Person
+        3)Use Curly Braces - {}
+        4)Inside the curly braces use the constructor and its parameters using parenthesis () - constructor (name, age)
+        5)Use curly braces next to the constructor - constructor (name, age) {}
+        6) Inside the curly braces use the properties "this.parameter's name" and the parameter that we receive - this.name = name; 
+        7)We can also use the function inside the class. 
+        7)The next step is to create a object for the class
+        8)In the object use the "new" keyword then use the class name inside the parenthesis we need to pass the arguments for the class  - const person1 = new Person ("Bala", "20")
+
+    ES6 Modules - 
+
+        It is an external file that contains reusable code that can be imported into other javaScript files.Writ reusable code for many different apps.Modules contains variables, classes, function, etc.. and more introduced as part of ECMA script 2015 update
+
+        Using modules we can create reusable code that can be used in different programs and different JS files.
+
+        As our program grows bigger, it may contain many lines of code. Instead of putting everything in a single file, you can use modules to separate codes in separate files as per their functionality. This makes our code organized and easier to maintain.
+
+        Module is a file that contains code to perform a specific task. A module may contain variables, function, classes etc. Let's see an example,
+
+        Benefit of Using Module :-
+
+            The code base is easier to maintain because different code having different functionalities are in different files.
+            Makes code reusable. You can define a module and use it numerous times as per your needs.
+
+    Date Object :-
+
+        Object that contain values that represent the dates and times. These date object can be changed and formatted for the user needs.
+
+            new Date(); - Shows the realTime date according to the location.
+
+            It is also possible to customize the time and date in this format - (Year, Month, Day, Hour, Minute, Second and millisecond).The hour is a military time format
+
+                const dateAndTime = new Date (2025, 11, 05, 02, 15, 30, 20); 
+
+            We can also use the string to represent the time and date - const date = new Date("2020-07-01");
+
+        There are many method available in Date object such as,
+
+            getFullYear() -	Gets the year according to local time.
+
+            getMonth() -	Gets the month, from 0 to 11 according to local time.
+
+            getDate() -	Gets the day of the month (1–31) according to local time.
+
+            getDay() -	Gets the day of the week (0-6) according to local time.
+
+            getHours() -	Gets the hour from 0 to 23 according to local time.
+
+            getMinutes	- Gets the minute from 0 to 59 according to local time.
+
+            getUTCDate() -	Gets the day of the month (1–31) according to universal time.
+
+            setFullYear() -	Sets the full year according to local time.
+
+            setMonth() -	Sets the month according to local time.
+
+            setDate() -	Sets the day of the month according to local time.
+
+            setUTCDate() -	Sets the day of the month according to universal time.
+
+                                                                    DAY - 2
+
+       DOM :-
+
+        Event Bubbling (Bubbling Up)
+
+             In the bubbling phase, the event moves upward from the target element through its ancestors, up to the window. (button → div → body → html)
+
+                             Capturing                                               BUBBLING
+                                                                     
+
+                Aspect -	Capturing Phase	                                Bubbling Phase
+                Direction -	Top → Down (ancestor → target)	                Bottom → Up (target → ancestor)
+                Default Behavior -	Not default; must be explicitly set  	Default in most browsers
+                Use Case -	Intercepting events before reaching target	    Handling events after reaching the target
+                Syntax -	addEventListener('event', handler, true)	        addEventListener('event', handler, false) or omit third argument
+
+            By default the capture was in false we can enable it into true.
+
+            If we want to stop the capturing and bubbling we can use the stopPropagation() - e.stopImmediatePropagation();
+
+            Tf we want to run the event only once we can use the once:true to run th event only once - {once :true}
+
+    ADDING ELEMENTS TO THE PAGE :
+
+        If you want to create an html element using javaScript we can use the document.cerateElement();
+                    const body = document.body;
+                    const newElement = document.createElement("div");
+                    newElement.style.backgroundColor = "pink";
+                    newElement.innerText = "Hello";
+                    body.append(newElement);
+
+        The innerText will always respond to the styling but the textContent doesn't.
+
+    DATA ATTRIBUTES :-
+
+        In JavaScript, data attributes refer to custom HTML attributes that are prefixed with data-. These attributes allow you to store extra data on standard, semantic HTML elements without using non-standard attributes or modifying the DOM structure unnecessarily.
+
+            Definition and Syntax
+                HTML5 introduced the data-* attribute, which provides a way to embed custom data attributes in HTML elements. The syntax is:
+                HTML :-
+                    <div id="user" data-user-id="12345" data-role="admin"></div>
+                JavaScript :-
+                    const userDetails = document.getElementById("user");
+                    const userId = userDetails.dataset.userId;
+                    console.log(userId); //12345
+
+        Feature	Description
+            data-* attributes  -	Store extra info directly in HTML elements
+            element.dataset	   -    Access or modify data attributes in JS
+            Naming convention  - 	data-user-id → dataset.userId
+            Data type	       -    All values are strings by default
+
+        ARROW FUNCTION :-
+
+            In JavaScript, arrow functions provide a concise syntax for writing function expressions. They were introduced in ES6 (ECMAScript 2015) and are particularly useful for simplifying small function expressions.
+
+                    // Traditional function expression
+                    const add = function(a, b) {
+                    return a + b;
+                    };
+
+                    // Equivalent arrow function
+                    const add = (a, b) => {
+                    return a + b;
+                    };
+
+                    // More concise (implicit return for single expression)
+                    const add = (a, b) => a + b;
+
+                        Scenario	                       Arrow Function Syntax
+
+                    No parameters                       () => expression
+                    One parameter 	                    param => expression
+                    Multiple parameters	                (param1, param2) => expression
+                    Function body with multiple lines	(params) => { statements }
+                    Returning an object literal	        () => ({ key: value })
+
+            USE CASES :-
+
+                    1)Callbacks (e.g., map, filter, forEach)
+                    2)Inside classes or object methods (when you want to preserve this)
+                    3)Event handlers in React functional components
+                    4)Small utility functions
+
+            WHEN NOT TO USE ARROW FUNCTION :-
+                    When a function needs its own this, arguments, or is used as a constructor.
+                    As methods in object literals where dynamic this is required:
+
+                                                                    DAY - 3
+
+    LOCALSTORAGE :-
+
+        localStorage is a Web Storage API provided by modern web browsers that allows developers to store key-value pairs in a web browser with no expiration time. It is part of the broader Web Storage API, which includes both localStorage and sessionStorage.
+
+        Key Characteristics of localStorage:
+
+        Persistence: Data stored in localStorage remains even after the browser is closed and reopened.
+
+        Storage Limit: Typically around 5 to 10 MB, depending on the browser.
+
+        Storage Scope: Available per origin (protocol + domain + port), and data is accessible from any page on the same origin.
+
+        Data Format: Stored as strings. Any data stored must be converted to a string, and non-string data types must be serialized (commonly using JSON.stringify() and JSON.parse()).
+
+                // Store data
+                localStorage.setItem('key', 'value');
+
+                // Retrieve data
+                let value = localStorage.getItem('key');
+
+                // Remove a specific item
+                localStorage.removeItem('key');
+
+                // Remove all items
+                localStorage.clear();
+
+                // Check the number of stored items
+                let count = localStorage.length;
+
+    JSON.stringify():-
+
+        Converts a JavaScript object or value into a JSON-formatted string. 	Converts JS object → JSON string
+
+            JSON.stringify(value[, replacer[, space]]);
+
+                value: The JavaScript object or array to convert.
+                replacer (optional): A function or array to filter the properties to be included.
+                space (optional): Adds indentation, white space, or line breaks to the output for readability.
+
+    JSON.parse()
+
+        Parses a JSON-formatted string and converts it into a JavaScript object.	Converts JSON string → JavaScript object/array
+
+            JSON.parse(text[, reviver]);
+
+                text: A valid JSON string.
+                reviver (optional): A function to transform the result during parsing.
+
+                                                                    DAY - 4
+
+    Event Delegation:-
+
+        Event delegation is a technique in JavaScript that leverages event bubbling to handle events efficiently. Instead of attaching event listeners to individual child elements, you attach a single event listener to a common parent element. This listener handles events that bubble up from its children.When an event occurs on a child element, it bubbles up to its ancestors. The parent can listen for that event and respond accordingly, often using the event.target property to determine which child triggered the event.
+
+        filter() and map() :-
+            FILTER:-
+                Creates a new array containing elements that satisfy a given condition.
+
+                    const result = array.filter(callback(element, index, array));
+
+                    const numbers = [1, 2, 3, 4, 5];
+                    const evens = numbers.filter(num => num % 2 === 0);
+                    console.log(evens); // Output: [2, 4]
+
+            MAP:-
+                Creates a new array with the results of calling a function on every element in the array.
+
+                    const result = array.map(callback(element, index, array));
+
+                    const numbers = [1, 2, 3];
+                    const squares = numbers.map(num => num * num);
+                    console.log(squares); // Output: [1, 4, 9]
+
+    DESTRUCTURING :-
+            Destructuring is a syntax that allows you to unpack values from arrays or extract properties from objects into individual variables.
+            Destructuring ->Extract values from arrays/objects -> const { name } = user
+
+                IN ARRAYS:-
+                        const numbers = [1, 2, 3];
+                        const [a, b] = numbers;
+
+                        console.log(a); // 1
+                        console.log(b); // 2
+
+                IN OBJECTS :-
+                        const user = { name: "Alice", age: 25 };
+                        const { name, age } = user;
+
+                        console.log(name); // "Alice"
+                        console.log(age);  // 25
+
+    SPREAD OPERATOR (...) :-
+            The spread operator allows you to expand an array or object into its elements or properties.
+            Spread Operator ->	Expand or copy arrays/objects -> const newArr = [...oldArr];
+
+                IN ARRAYS :-
+                        const arr1 = [1, 2];
+                        const arr2 = [...arr1, 3, 4]; // [1, 2, 3, 4]
+
+                IN OBJECTS :-
+                        const obj1 = { x: 10 };
+                        const obj2 = { ...obj1, y: 20 }; // { x: 10, y: 20 }
+
+        Cloning arrays or objects
+        Merging arrays or objects
+        Passing arguments to functions
+
+                                                                    DAY - 5
+
+    ASYNC/AWAIT :-
+        async and await are syntactic features introduced in ES2017 (ES8) that make it easier to work with Promises and write asynchronous code in a synchronous-looking style.
+
+        async is used to declare a function that always returns a Promise.
+        await is used to pause execution inside an async function until a Promise is resolved or rejected.
+
+            async function fetchData() {
+            const response = await fetch('https://api.quotable.io/random');
+            const data = await response.json();
+            console.log(data);
+            }
+
+    EXTERNAL APIs :-
+
+        An External API is a web service or endpoint hosted outside your application, typically returning data in JSON format over HTTP(S).
+
+            async function getUser() {
+            try {
+                const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
+                
+                if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const user = await response.json();
+                console.log(user.name); // Output: Leanne Graham
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+            }
+
+                fetch() initiates a network request and returns a Promise.
+                await fetch() pauses execution until the response is received.
+                await response.json() parses the response body into a JavaScript object.
+                try...catch handles any network or parsing errors.
