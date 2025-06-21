@@ -1,8 +1,17 @@
-export const saveTasks = (tasks) => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  };
-  
-  export const getTasks = () => {
-    const tasks = localStorage.getItem('tasks');
+const LocalStorage = 'tasks';
+
+// Save tasks to localStorage
+export function saveTasks(tasks) {
+    localStorage.setItem(LocalStorage, JSON.stringify(tasks));
+}
+
+// Get tasks from localStorage
+export function getTasks() {
+    const tasks = localStorage.getItem(LocalStorage);
     return tasks ? JSON.parse(tasks) : [];
-  };
+}
+
+// Clear all tasks from localStorage
+export function clearTasks() {
+    localStorage.removeItem(LocalStorage);
+}
